@@ -1,0 +1,96 @@
+<div class="container mt-5 mb-5">
+  <div class="card product-card shadow-sm mx-auto" style="max-width: 420px;">
+    
+    <div id="productCarousel" class="carousel slide position-relative" data-bs-ride="carousel" (slid.bs.carousel)="onSlide($event)">
+      <span class="image-counter">{{currentIndex}}/{{selectedVariant.images.length}}</span>
+
+      <div class="carousel-inner text-center">
+        <div *ngFor="let img of selectedVariant.images; let i = index" 
+             class="carousel-item" 
+             [class.active]="i === 0">
+          <img [src]="img" class="img-fluid product-image" alt="Product">
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon custom-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon custom-icon"></span>
+      </button>
+    </div>
+
+    <div class="card-body card-body-custom">
+      <div class="d-flex align-items-center justify-content-between price-section mb-1">
+        <div>
+          <span class="current-price">₱{{currentPrice | number}}</span>
+          <span class="old-price">₱{{selectedVariant.oldPrice | number}}</span>
+        </div>
+        <span class="best-seller-badge">Best Seller</span>
+      </div>
+
+      <div class="d-flex align-items-center justify-content-between mb-2">
+        <h3 class="product-title mb-0">{{productData.name}}</h3>
+        <div class="rating-section d-flex align-items-center">
+          <i class="bi bi-star-fill me-1"></i>
+          <span>4.9</span>
+          <span class="rating-count">(2000+)</span>
+        </div>
+      </div>
+
+      <p class="product-description">{{productData.description}}</p>
+
+      <div class="mb-4">
+        <h6 class="section-label">Color</h6>
+        <div class="color-options-grid">
+          <div *ngFor="let v of productVariants" 
+               class="color-dot-wrapper" 
+               [class.active]="selectedVariant === v"
+               [style.border-color]="v.colorCode"
+               (click)="selectColor(v)">
+            <div class="color-dot" [style.background-color]="v.colorCode"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h6 class="section-label">Size (cm)</h6>
+        <div class="size-options-grid">
+          <button *ngFor="let s of selectedVariant.sizes" 
+                  (click)="selectSize(s)" 
+                  class="size-btn"
+                  [class.size-btn-active]="selectedSizeObj.size === s.size"
+                  [class.size-btn-inactive]="selectedSizeObj.size !== s.size">
+            {{s.size}}
+          </button>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+            <h6 class="section-label mb-0">Quantity</h6>
+            <span class="stock-badge">In Stock</span>
+        </div>
+        <div class="d-flex align-items-center justify-content-center quantity-picker w-100">
+          <button class="quantity-btn" (click)="updateQuantity(-1)">-</button>
+          <span class="quantity-value mx-4">{{quantity}}</span>
+          <button class="quantity-btn" (click)="updateQuantity(1)">+</button>
+        </div>
+      </div>
+
+      <div class="d-flex gap-2 align-items-center action-bar">
+        <div class="icon-btn-wrapper" (click)="onFavorite()">
+            <i class="bi bi-heart action-icon"></i>
+            <div class="notification-dot"></div>
+        </div>
+        <div class="icon-btn-wrapper">
+            <i class="bi bi-bag action-icon"></i>
+            <div class="notification-dot"></div>
+        </div>
+        <button class="btn buy-now-btn flex-grow-1" (click)="onBuyNow()">
+          Buy Now
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

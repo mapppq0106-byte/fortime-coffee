@@ -1,0 +1,91 @@
+/* name.css - Optimized */
+.container { font-family: 'Segoe UI', sans-serif; }
+
+.product-card {
+    border-radius: 30px !important;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.08) !important;
+    border: none !important;
+    max-width: 420px;
+    margin: auto;
+    overflow: hidden;
+    background: #fff;
+}
+
+/* --- CAROUSEL --- */
+.carousel-inner { padding: 30px; }
+.product-image { height: 280px; object-fit: contain; mix-blend-mode: multiply; }
+
+.carousel-control-prev, .carousel-control-next { width: 10%; opacity: 0; transition: 0.3s; }
+#productCarousel:hover .carousel-control-prev, 
+#productCarousel:hover .carousel-control-next { opacity: 1; }
+
+.custom-icon {
+    background: rgba(0,0,0,0.1) !important;
+    border-radius: 50%;
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 1.2rem;
+}
+
+.image-counter {
+    position: absolute; top: 20px; right: 20px; z-index: 10;
+    background: rgba(0,0,0,0.7); color: #fff;
+    padding: 4px 10px; border-radius: 20px;
+    font-size: 0.75rem; font-weight: bold;
+}
+
+/* --- CHI TIẾT SẢN PHẨM --- */
+.card-body-custom { padding: 0 30px 30px; }
+
+.price-section .current-price { color: #d93025; font-weight: 700; font-size: 1.8rem; }
+.price-section .old-price { color: #a0a0a0; text-decoration: line-through; margin-left: 8px; }
+
+.best-seller-badge { background: #fef0db; color: #f1a843; padding: 6px 12px; border-radius: 20px; font: 600 0.8rem sans-serif; }
+
+.product-title { font: 700 1.4rem sans-serif; color: #202124; margin-top: 10px; }
+.rating-section { color: #fbbc04; font-weight: 600; }
+.rating-count { color: #70757a; font-weight: 400; margin-left: 5px; }
+
+.product-description { color: #5f6368; font-size: 0.9rem; line-height: 1.5; margin-bottom: 20px; }
+.section-label { font-weight: 700; color: #202124; margin-bottom: 12px; }
+
+/* --- SELECTION (Color & Size) --- */
+.color-options-grid, .size-options-grid { display: flex; gap: 15px; margin-bottom: 25px; }
+
+.color-dot-wrapper { position: relative; cursor: pointer; }
+.color-dot { width: 35px; height: 35px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.1); transition: 0.2s; }
+.color-dot-wrapper:hover .color-dot { transform: scale(1.1); }
+
+.color-dot-wrapper.active::after {
+    content: ''; position: absolute; inset: -5px;
+    border-radius: 50%; border: 2px solid; opacity: 0.5;
+}
+
+.size-btn { padding: 10px 20px; border-radius: 20px; font: 600 0.9rem sans-serif; border: none; transition: 0.2s; }
+.size-btn-inactive { background: #e0e0e0; color: #202124; }
+.size-btn-active { background: #000; color: #fff; }
+
+/* --- QUANTITY & ACTIONS --- */
+.stock-badge { background: #c8fad4; color: #209c48; font-weight: 600; padding: 5px 12px; border-radius: 15px; font-size: 0.85rem; }
+
+.quantity-picker { border: 1px solid #e0e0e0; border-radius: 10px; overflow: hidden; background: #f8f9fa; }
+.quantity-btn { border: none; background: none; color: #70757a; padding: 10px 15px; font-size: 1.2rem; transition: 0.2s; }
+.quantity-btn:hover { background: #eee; }
+.quantity-value { font-weight: 700; color: #202124; min-width: 30px; text-align: center; }
+
+.action-bar { border-top: 1px solid #e0e0e0; margin-top: 30px; padding-top: 20px; display: flex; align-items: center; }
+
+.icon-btn-wrapper { position: relative; cursor: pointer; margin-right: 15px; }
+.action-icon { font-size: 1.6rem; color: #000; transition: 0.2s; }
+.action-icon:hover { color: #d93025; }
+
+.notification-dot {
+    position: absolute; top: 0; right: 0; width: 10px; height: 10px;
+    background: #d93025; border-radius: 50%; border: 2px solid #fff;
+}
+
+.buy-now-btn {
+    background: #1a3c7a; color: #fff; font-weight: 700;
+    border-radius: 15px; padding: 15px; flex-grow: 1; border: none; transition: 0.2s;
+}
+.buy-now-btn:hover { background: #132d5e; }
